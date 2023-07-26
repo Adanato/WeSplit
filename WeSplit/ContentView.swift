@@ -37,7 +37,9 @@ struct ContentView: View {
                             Text("\($0) people")
                         }
                     }
+                    
                 }
+                
                 Section {
                     Picker("Tip Percentages", selection: $tipPercentage) {
                         ForEach(2..<100) {
@@ -48,6 +50,10 @@ struct ContentView: View {
                     .pickerStyle(NavigationLinkPickerStyle())
                 } header: {
                     Text("How much tip do you want to leave?")
+                }
+                
+                Section {
+                    Text(totalPerPerson,format:.currency(code: Locale.current.currency?.identifier ?? "USD"))
                 }
                 
                 Section {
